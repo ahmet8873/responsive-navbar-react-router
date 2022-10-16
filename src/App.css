@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar{
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+  background-color: rgb(12, 121, 121);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.brandtitle{
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+.navlinks{
+  display: flex;
+  
+}
+.navlinks li{
+  list-style: none;
+}
+.navlink{
+  text-decoration: none;
+  color: white;
+  padding: 1.2rem;
+  display: block;
+  
+}
+.navlink.active{
+  text-decoration: underline;
+  font-weight: bold;
+}
+.brandname{
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+}
+.navlink:hover{
+  background-color: aqua;
+}
+.toggleButton{
+  position: absolute;
+  top:1rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+.toggleButton .bar{
+ height: 3px;
+ width: 100%;
+ background-color: white;
+ border-radius: 10px;
+}
+.container{
+  margin:20px;
+  text-align: center;
+  height: 400px;
+ 
+  position: relative;
+}
+.firstlinkparagraf{
+  animation: animeyazi 3s ;
+}
+.top{
+  position: absolute;
+  height: 10%;
+  width: 10%;
+  background-color: cadetblue;
+  border-radius: 50%;
+  animation: oynayantop 3s infinite alternate-reverse;
+}
+.current{
+  text-decoration: overline underline;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+
+@media screen and (max-width:550px) {
+  .navlinks{
+    display: none ;
   }
-  to {
-    transform: rotate(360deg);
+  .toggleButton{
+    display: flex;
+  }
+   .navbar{
+    flex-direction: column;
+   }
+   .navlinks{
+    flex-direction: column;
+   }
+   .navlinks.active{
+    display: flex;
+   }
+   .navitems{
+    width: 100%;
+    text-align: center;
+   }
+}
+
+@keyframes animeyazi{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+@keyframes oynayantop{
+  0%{
+    color: yellow;
+    transform: translate(0,0);
+   
+
+  }  
+  100%{
+    color: blue;
+transform: translate(1000%,1000%);
   }
 }

@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Navbar from './components/Navbar';
+import { useState } from 'react'
+import {Routes,Route} from 'react-router-dom'
+import FirstLink from './components/FirstLink';
+import SecondLink from './components/SecondLink';
+import ThirdLink from './components/ThirdLink';
+
 
 function App() {
+ const[toggle, setToggle]=useState(false)
+ 
+ 
+ const openLinks=()=>{
+  setToggle(!toggle)
+ }
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Navbar openLinks={openLinks} toggle={toggle}></Navbar>
+       
+      
+      <div className="container">
+        <Routes>
+        <Route path='/first' element={<FirstLink/>} />
+        <Route path='/second' element={<SecondLink/>} />
+        <Route path='/third' element={<ThirdLink/>} />
+       </Routes>
+      </div>
+       
+
+       
+       
+
+
     </div>
   );
 }
